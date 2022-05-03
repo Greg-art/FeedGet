@@ -23,6 +23,7 @@ export function FeedbackTypeStep({onFeedbackTypeChanged}: FeedbackTypeStepProps)
                 rounded-lg
                 py-5
                 w-24
+                flex
                 flex-1
                 flex-col
                 items-center
