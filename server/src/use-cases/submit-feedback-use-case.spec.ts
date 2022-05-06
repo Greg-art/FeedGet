@@ -13,7 +13,7 @@ describe('Submit feedback', () => {
     await expect(submitFeedback.execute({
       type: "BUG",
       comment: 'example comment',
-      screenshot: 'data:image/png;base64s',
+      screenshot: 'data:image/png;base64',
     })).resolves.not.toThrow();
 
     expect(createFeedbackSpy).toHaveBeenCalled();
@@ -25,7 +25,7 @@ describe('Submit feedback', () => {
     await expect(submitFeedback.execute({
       type: "",
       comment: 'example comment',
-      screenshot: 'data:image/png;base64s',
+      screenshot: 'data:image/png;base64',
     })).rejects.toThrow();
   });
 
@@ -33,7 +33,7 @@ describe('Submit feedback', () => {
     await expect(submitFeedback.execute({
       type: "asdf",
       comment: '',
-      screenshot: 'data:image/png;base64s',
+      screenshot: 'data:image/png;base64',
     })).rejects.toThrow();
   });
 
