@@ -59,13 +59,13 @@ export function Form( { onFeedbackCanceled, feedbackType, onFeedbackSent }:Props
     try{
       await api.post('/feedbacks', {
         type: feedbackType,
-        screenshot: `data:image/png;base64', ${screenshotBase64}`,
+        screenshot: `data:image/png;base64, ${screenshotBase64}`,
         comment
       })
 
       onFeedbackSent();
     }catch(error){
-      console.log(error.response);
+      console.log(error);
       setIsSendingFeedback(false)
     }
   }
