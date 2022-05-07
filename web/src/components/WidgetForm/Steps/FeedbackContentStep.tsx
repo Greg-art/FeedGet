@@ -1,5 +1,5 @@
-import { ArrowLeft, Camera } from "phosphor-react";
-import { FormEvent, FormEventHandler, useState } from "react";
+import { ArrowLeft } from "phosphor-react";
+import { FormEvent, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
 import { api } from "../../../lib/api";
 import { CloseButton } from "../../CloseButton";
@@ -27,11 +27,6 @@ export function FeedbackContentStep({
     event.preventDefault()
 
     setIsSendingFeedback(true)
-
-    // console.log({
-    //   screenshot,
-    //   comment,
-    // })
 
     await api.post('/feedbacks', {
       type: feedbackType,
@@ -73,12 +68,27 @@ export function FeedbackContentStep({
       </header>
 
       <form className='my-4 w-full' onSubmit={handleSubmitFeedback}>
-        <textarea 
+        <textarea
           placeholder="Conte com detalhes o que está acontecendo"
           onChange={event => setComment(event.target.value)}
-          className='min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin'
-
-        >
+          className='min-w-[304px]
+          w-full
+          min-h-[112px]
+          text-sm
+          placeholder-zinc-400
+          text-zinc-100
+          border-zinc-600
+          bg-transparent
+          rounded-md
+          focus:border-brand-500
+          focus:ring-brand-500
+          focus:ring-1
+          focus:outline-none
+          resize-none
+          scrollbar
+          scrollbar-thumb-zinc-700
+          scrollbar-track-transparent
+          scrollbar-thin'>
         </textarea>
         <footer className="flex gap-2 mt-2">
           <ScreenshotButton 
